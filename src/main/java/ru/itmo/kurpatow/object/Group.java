@@ -3,6 +3,7 @@ package ru.itmo.kurpatow.object;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "table_group")
@@ -14,7 +15,7 @@ public class Group {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "many_to_many_group_mountaineer")
-    private ArrayList<Mountaineer> mountaineer;
+    private ArrayList<Mountaineer> mountaineer = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "mountain")
